@@ -30,8 +30,7 @@ ChatBot::ChatBot(std::string filename) {
 
 ChatBot::~ChatBot() { std::cout << "ChatBot Destructor \n"; }
 
-//// STUDENT CODE
-////
+
 
 ChatBot::ChatBot(const ChatBot &src) {
   std::cout << "ChatBot Copy Constructor \n";
@@ -85,9 +84,6 @@ ChatBot &ChatBot::operator=(ChatBot &&src) {
 
   return *this;
 }
-
-////
-//// EOF STUDENT CODE
 
 void ChatBot::ReceiveMessageFromUser(std::string message) {
   // loop over all edges and keywords and compute Levenshtein distance to query

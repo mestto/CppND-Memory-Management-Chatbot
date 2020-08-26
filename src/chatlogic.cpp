@@ -12,10 +12,8 @@
 #include "graphnode.h"
 
 ChatLogic::ChatLogic() {
-  //// STUDENT CODE
-  //
-  //
-  //// EOF STUDENT CODE
+  
+
 }
 
 ChatLogic::~ChatLogic() {}
@@ -95,8 +93,7 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename) {
 
           // node-based processing
           if (type->second == "NODE") {
-            //// STUDENT CODE
-            ////
+            
 
             // check if node with this ID exists already
             auto newNode =
@@ -114,14 +111,11 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename) {
               AddAllTokensToElement("ANSWER", tokens, **newNode);
             }
 
-            ////
-            //// EOF STUDENT CODE
+          
           }
 
           // edge-based processing
           if (type->second == "EDGE") {
-            //// STUDENT CODE			___ TASK 4 ___
-            ////
 
             // find tokens for incoming (parent) and outgoing (child) node
             auto parentToken = std::find_if(
@@ -162,8 +156,6 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename) {
               (*parentNode)->AddEdgeToChildNode(std::move(edge));
             }
 
-            ////
-            //// EOF STUDENT CODE
           }
         } else {
           std::cout << "Error: ID missing. Line is ignored!" << std::endl;
@@ -179,8 +171,7 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename) {
     return;
   }
 
-  //// STUDENT CODE
-  ////
+  
 
   // identify root node
   GraphNode *rootNode = nullptr;
@@ -202,8 +193,7 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename) {
   chatbot.SetChatLogicHandle(this);
   rootNode->MoveChatbotHere(std::move(chatbot));
 
-  ////
-  //// EOF STUDENT CODE
+
 }
 void ChatLogic::SetChatbotHandle(ChatBot *chatbot) { _chatBot = chatbot; }
 
