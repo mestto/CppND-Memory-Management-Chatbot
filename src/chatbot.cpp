@@ -30,8 +30,6 @@ ChatBot::ChatBot(std::string filename) {
 
 ChatBot::~ChatBot() { std::cout << "ChatBot Destructor \n"; }
 
-
-
 ChatBot::ChatBot(const ChatBot &src) {
   std::cout << "ChatBot Copy Constructor \n";
 

@@ -112,8 +112,6 @@ ChatBotPanelDialog::ChatBotPanelDialog(wxWindow *parent, wxWindowID id)
   // allow for PNG images to be handled
   wxInitAllImageHandlers();
 
-
-
   // create chat logic instance
   _chatLogic = std::make_unique<ChatLogic>();
 
@@ -122,8 +120,6 @@ ChatBotPanelDialog::ChatBotPanelDialog(wxWindow *parent, wxWindowID id)
 
   // load answer graph from file
   _chatLogic->LoadAnswerGraphFromFile(dataPath + "src/answergraph.txt");
-
-
 }
 
 ChatBotPanelDialog::~ChatBotPanelDialog() {}
@@ -180,10 +176,10 @@ ChatBotPanelDialogItem::ChatBotPanelDialogItem(wxPanel *parent, wxString text,
                                                bool isFromUser)
     : wxPanel(parent, -1, wxPoint(-1, -1), wxSize(-1, -1), wxBORDER_NONE) {
   // retrieve image from chatbot
-  wxBitmap *bitmap =
-      isFromUser == true ? nullptr : ((ChatBotPanelDialog *)parent)
-                                         ->GetChatLogicHandle()
-                                         ->GetImageFromChatbot();
+  wxBitmap *bitmap = isFromUser == true ? nullptr
+                                        : ((ChatBotPanelDialog *)parent)
+                                              ->GetChatLogicHandle()
+                                              ->GetImageFromChatbot();
 
   // create image and text
   _chatBotImg = new wxStaticBitmap(

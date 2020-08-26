@@ -11,10 +11,7 @@
 #include "graphedge.h"
 #include "graphnode.h"
 
-ChatLogic::ChatLogic() {
-  
-
-}
+ChatLogic::ChatLogic() {}
 
 ChatLogic::~ChatLogic() {}
 
@@ -93,7 +90,6 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename) {
 
           // node-based processing
           if (type->second == "NODE") {
-            
 
             // check if node with this ID exists already
             auto newNode =
@@ -110,8 +106,6 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename) {
               // add all answers to current node
               AddAllTokensToElement("ANSWER", tokens, **newNode);
             }
-
-          
           }
 
           // edge-based processing
@@ -155,7 +149,6 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename) {
               (*childNode)->AddEdgeToParentNode(edge.get());
               (*parentNode)->AddEdgeToChildNode(std::move(edge));
             }
-
           }
         } else {
           std::cout << "Error: ID missing. Line is ignored!" << std::endl;
@@ -170,8 +163,6 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename) {
     std::cout << "File could not be opened!" << std::endl;
     return;
   }
-
-  
 
   // identify root node
   GraphNode *rootNode = nullptr;
@@ -192,8 +183,6 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename) {
   chatbot.SetRootNode(rootNode);
   chatbot.SetChatLogicHandle(this);
   rootNode->MoveChatbotHere(std::move(chatbot));
-
-
 }
 void ChatLogic::SetChatbotHandle(ChatBot *chatbot) { _chatBot = chatbot; }
 
